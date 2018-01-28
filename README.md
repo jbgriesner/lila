@@ -1,5 +1,3 @@
-[lichess.org](https://lichess.org)
-==================================
 
 [![Build Status](https://travis-ci.org/ornicar/lila.svg?branch=master)](https://travis-ci.org/ornicar/lila)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/lichess/localized.svg)](https://crowdin.com/project/lichess)
@@ -670,3 +668,7 @@ License
 Lila is licensed under the GNU Affero General Public License 3 or any later
 version at your choice with an exception for Highcharts. See COPYING for
 details.
+=======
+### Search service for lichess.org
+
+> "Keep elasticsearch threads out of your web facing app, kids" -- W. Churchill

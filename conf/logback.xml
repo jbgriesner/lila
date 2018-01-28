@@ -1,5 +1,6 @@
 <configuration>
 
+<<<<<<< HEAD
   <conversionRule conversionWord="coloredLevel" converterClass="play.api.Logger$ColoredLevel" />
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -97,5 +98,47 @@
   <!-- <logger name="com.avaje.ebeaninternal.server.core.XmlConfigLoader" level="OFF" /> -->
   <!-- <logger name="com.avaje.ebeaninternal.server.lib.BackgroundThread" level="OFF" /> -->
   <!-- <logger name="com.gargoylesoftware.htmlunit.javascript" level="OFF" /> -->
+=======
+  <conversionRule conversionWord="coloredLevel" converterClass="play.api.libs.logback.ColoredLevel" />
+
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>${application.home:-.}/logs/application.log</file>
+    <encoder>
+      <pattern>%date [%level] from %logger in %thread - %message%n%xException</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%coloredLevel %logger{15} - %message%n%xException{10}</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="ASYNCFILE" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="FILE" />
+  </appender>
+
+  <appender name="ASYNCSTDOUT" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="STDOUT" />
+  </appender>
+
+  <logger name="play" level="INFO" />
+  <logger name="application" level="INFO" />
+  <logger name="search" level="INFO" />
+  <logger name="chrono" level="DEBUG" />
+
+  <logger name="play.core" level="ERROR"/>
+
+  <!-- Off these ones as they are annoying, and anyway we manage configuration ourselves -->
+  <logger name="com.avaje.ebean.config.PropertyMapLoader" level="OFF" />
+  <logger name="com.avaje.ebeaninternal.server.core.XmlConfigLoader" level="OFF" />
+  <logger name="com.avaje.ebeaninternal.server.lib.BackgroundThread" level="OFF" />
+  <logger name="com.gargoylesoftware.htmlunit.javascript" level="OFF" />
+
+  <root level="WARN">
+    <appender-ref ref="ASYNCFILE" />
+    <appender-ref ref="ASYNCSTDOUT" />
+  </root>
+>>>>>>> 51244d0e9e8613d5777e44241221c826f49fe237
 
 </configuration>
